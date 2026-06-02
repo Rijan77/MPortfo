@@ -67,12 +67,21 @@ function TiltPhoto() {
       <div style={{ padding: '2px', borderRadius: '1.5rem', background: 'linear-gradient(135deg, rgba(6,182,212,0.7) 0%, rgba(139,92,246,0.7) 100%)', boxShadow: '0 24px 80px rgba(6,182,212,0.22), 0 8px 40px rgba(0,0,0,0.55)', display: 'inline-block' }}>
         <div style={{ width: '260px', height: '310px', borderRadius: 'calc(1.5rem - 2px)', overflow: 'hidden', position: 'relative', background: '#060A14' }}>
 
+          {/* Preload both profile images so swapping is instant */}
+          {PHOTOS.map((p, i) => (
+            <link key={i} rel="preload" as="image" href={p.src} />
+          ))}
+
           {/* Cross-fading photos */}
           <AnimatePresence mode="sync">
             <motion.img
               key={photoIdx}
               src={current.src}
               alt="Rijan Acharya"
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore — fetchpriority is valid HTML but TS types lag behind
+              fetchpriority="high"
+              decoding="async"
               initial={{ opacity: 0, scale: 1.04 }}
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.9, ease: 'easeOut' as const } }}
               exit={{ opacity: 0, scale: 0.97, transition: { duration: 0.6, ease: 'easeIn' as const } }}

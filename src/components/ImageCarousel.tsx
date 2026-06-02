@@ -85,6 +85,8 @@ export default function ImageCarousel({ images, title }: Props) {
                   exit="exit"
                   src={images[idx]}
                   alt={`${title} screenshot ${idx + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block', position: 'absolute', inset: 0 }}
                   draggable={false}
                 />

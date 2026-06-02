@@ -32,6 +32,8 @@ function MiniSlideshow({ images, title }: { images: string[]; title: string }) {
           exit="exit"
           src={images[idx]}
           alt={`${title} screenshot ${idx + 1}`}
+          loading="lazy"
+          decoding="async"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
           draggable={false}
         />
