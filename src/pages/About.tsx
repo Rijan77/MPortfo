@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import PageTransition from '../components/PageTransition';
 import { skillCategories } from '../data/skills';
 import { experiences, education, certifications } from '../data/experience';
-import profileImg   from '../assets/profile.png';
+import profileImg   from '../assets/profile.webp';
 import mediishaLogo from '../assets/mediisha.png';
 import diyaloLogo   from '../assets/diyalo.jpg';
 import pcpsLogo     from '../assets/pcps.png';
@@ -246,4 +246,5 @@ export default function About() {
     </PageTransition>
   );
 }
+
 

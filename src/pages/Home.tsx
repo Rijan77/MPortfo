@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect } from 'react';
+﻿import { lazy, Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -6,8 +6,8 @@ import PageTransition from '../components/PageTransition';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
 import { experiences, education, certifications } from '../data/experience';
-import profileImg  from '../assets/profile.png';
-import profileImg2 from '../assets/profile1.png';
+import profileImg  from '../assets/profile.webp';
+import profileImg2 from '../assets/profile1.webp';
 import mediishaLogo from '../assets/mediisha.png';
 import diyaloLogo   from '../assets/diyalo.jpg';
 import pcpsLogo     from '../assets/pcps.png';
@@ -30,10 +30,10 @@ const fadeUp = (delay = 0) => ({
   animate: { opacity: 1, y: 0, transition: { duration: 0.55, delay, ease: EASE } },
 });
 
-/* ─── Tilt Photo (FIXED: image inside gradient border) ─── */
+/* â”€â”€â”€ Tilt Photo (FIXED: image inside gradient border) â”€â”€â”€ */
 const PHOTOS = [
-  { src: profileImg,  pos: 'center top',    label: 'Flutter Dev',    badge: '📱' },
-  { src: profileImg2, pos: 'center center',  label: 'Software Eng.',  badge: '💻' },
+  { src: profileImg,  pos: 'center top',    label: 'Flutter Dev',    badge: 'ðŸ“±' },
+  { src: profileImg2, pos: 'center center',  label: 'Software Eng.',  badge: 'ðŸ’»' },
 ];
 
 function TiltPhoto() {
@@ -79,7 +79,7 @@ function TiltPhoto() {
               src={current.src}
               alt="Rijan Acharya"
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore — fetchpriority is valid HTML but TS types lag behind
+              // @ts-ignore â€” fetchpriority is valid HTML but TS types lag behind
               fetchpriority="high"
               decoding="async"
               initial={{ opacity: 0, scale: 1.04 }}
@@ -98,7 +98,7 @@ function TiltPhoto() {
             background: `radial-gradient(circle at ${glowX} ${glowY}, rgba(255,255,255,0.07) 0%, transparent 55%)`,
           }} />
 
-          {/* Photo indicator dots — bottom center */}
+          {/* Photo indicator dots â€” bottom center */}
           <div style={{ position: 'absolute', bottom: '10px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '5px', zIndex: 4 }}>
             {PHOTOS.map((_, i) => (
               <button
@@ -112,14 +112,14 @@ function TiltPhoto() {
         </div>
       </div>
 
-      {/* Floating badge — Open to work */}
+      {/* Floating badge â€” Open to work */}
       <motion.div animate={{ y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
         style={{ position: 'absolute', bottom: '-1rem', left: '-1rem', background: 'rgba(6,10,20,0.92)', backdropFilter: 'blur(12px)', border: '1px solid rgba(6,182,212,0.35)', borderRadius: '0.75rem', padding: '0.5rem 0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 8px 24px rgba(0,0,0,0.5)', zIndex: 10 }}>
         <span className="badge-dot" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22C55E', flexShrink: 0 }} />
         <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.73rem', color: '#94A3B8', whiteSpace: 'nowrap' }}>Open to work</span>
       </motion.div>
 
-      {/* Floating badge — animates label with the photo */}
+      {/* Floating badge â€” animates label with the photo */}
       <AnimatePresence mode="wait">
         <motion.div
           key={photoIdx}
@@ -136,7 +136,7 @@ function TiltPhoto() {
   );
 }
 
-/* ─── Alternating timeline item ─── */
+/* â”€â”€â”€ Alternating timeline item â”€â”€â”€ */
 function TimelineItem({ left, right, dot, index }: { left: React.ReactNode; right: React.ReactNode; dot: React.ReactNode; index: number }) {
   return (
     <motion.div
@@ -198,7 +198,7 @@ function ExpCard({ role, company, bullets, current }: { role: string; company: s
       <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         {bullets.map((b, i) => (
           <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-            <span style={{ color: '#06B6D4', fontSize: '0.7rem', marginTop: '0.32rem', flexShrink: 0, lineHeight: 1 }}>▸</span>
+            <span style={{ color: '#06B6D4', fontSize: '0.7rem', marginTop: '0.32rem', flexShrink: 0, lineHeight: 1 }}>â–¸</span>
             <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.8rem, 1.6vw, 0.86rem)', color: '#94A3B8', lineHeight: 1.7 }}>{b}</span>
           </li>
         ))}
@@ -217,7 +217,7 @@ function EduCard({ degree, institution, period }: { degree: string; institution:
   );
 }
 
-/* ─── Section heading ─── */
+/* â”€â”€â”€ Section heading â”€â”€â”€ */
 function SectionHead({ sup, title, accent = '.' }: { sup: string; title: string; accent?: string }) {
   return (
     <div style={{ marginBottom: '3rem' }}>
@@ -229,17 +229,17 @@ function SectionHead({ sup, title, accent = '.' }: { sup: string; title: string;
   );
 }
 
-/* ════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 export default function Home() {
   return (
     <PageTransition>
       <Helmet>
-        <title>Rijan Acharya — Flutter Developer</title>
+        <title>Rijan Acharya â€” Flutter Developer</title>
         <meta name="description" content="Flutter Developer and Software Engineer based in Kathmandu, Nepal, specializing in cross-platform mobile apps for healthcare." />
-        <meta property="og:title" content="Rijan Acharya — Flutter Developer" />
+        <meta property="og:title" content="Rijan Acharya â€” Flutter Developer" />
       </Helmet>
 
-      {/* ══ HERO ══════════════════════════════════════════════════════════ */}
+      {/* â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="dot-grid" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '5rem 1.5rem 3rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-5%', left: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
@@ -257,11 +257,11 @@ export default function Home() {
             </motion.h1>
 
             <motion.p {...fadeUp(0.16)} style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500, fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', color: '#94A3B8', margin: '0 0 1.25rem', letterSpacing: '-0.01em' }}>
-              Flutter Developer · Software Engineer
+              Flutter Developer Â· Software Engineer
             </motion.p>
 
             <motion.p {...fadeUp(0.22)} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 1.8vw, 1rem)', color: '#64748B', lineHeight: 1.8, margin: '0 0 2rem', maxWidth: '450px' }}>
-              Building cross-platform mobile apps that matter — currently crafting healthcare workflows at{' '}
+              Building cross-platform mobile apps that matter â€” currently crafting healthcare workflows at{' '}
               <span style={{ color: '#06B6D4', fontWeight: 600 }}>Mediisha</span> with Flutter &amp; Clean Architecture.
             </motion.p>
 
@@ -297,7 +297,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right — 3D + Photo */}
+          {/* Right â€” 3D + Photo */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '400px' }} className="hero-right">
             <div style={{ position: 'absolute', inset: '-60px', zIndex: 0, opacity: 0.9 }}>
               <Suspense fallback={null}><HeroScene /></Suspense>
@@ -323,14 +323,14 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ══ STATS ═════════════════════════════════════════════════════════ */}
+      {/* â•â• STATS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ borderTop: '1px solid #1C2A3A', borderBottom: '1px solid #1C2A3A', background: '#0D1525', padding: '2.5rem 1.5rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1px' }}>
           {[
-            { value: '1+',      label: 'Years Experience',   icon: '⚡' },
-            { value: '4+',       label: 'Apps Shipped',        icon: '📱' },
-            { value: 'Flutter', label: 'Primary Stack',       icon: '🚀' },
-            { value: 'KTM',     label: 'Kathmandu, Nepal',    icon: '📍' },
+            { value: '1+',      label: 'Years Experience',   icon: 'âš¡' },
+            { value: '4+',       label: 'Apps Shipped',        icon: 'ðŸ“±' },
+            { value: 'Flutter', label: 'Primary Stack',       icon: 'ðŸš€' },
+            { value: 'KTM',     label: 'Kathmandu, Nepal',    icon: 'ðŸ“' },
           ].map(({ value, label, icon }, i) => (
             <motion.div key={label} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
               style={{ textAlign: 'center', padding: '1.5rem 1rem', borderRight: i < 3 ? '1px solid #1C2A3A' : 'none', position: 'relative' }}
@@ -344,7 +344,7 @@ export default function Home() {
         <style>{`@media (max-width: 640px) { .stat-col-1, .stat-col-3 { border-right: none !important; } }`}</style>
       </section>
 
-      {/* ══ WORK EXPERIENCE — Alternating Timeline ═══════════════════════ */}
+      {/* â•â• WORK EXPERIENCE â€” Alternating Timeline â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 1.5rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <SectionHead sup="What I have done so far" title="Work Experience" />
@@ -382,7 +382,7 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ══ SKILLS ════════════════════════════════════════════════════════ */}
+      {/* â•â• SKILLS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ padding: '0 1.5rem clamp(4rem, 8vw, 6rem)', borderTop: '1px solid #1C2A3A' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: 'clamp(4rem, 8vw, 6rem)' }}>
           <SectionHead sup="Toolbox" title="Skills & Technologies" />
@@ -390,7 +390,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ EDUCATION — Alternating Timeline ════════════════════════════ */}
+      {/* â•â• EDUCATION â€” Alternating Timeline â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ padding: '0 1.5rem clamp(4rem, 8vw, 6rem)', borderTop: '1px solid #1C2A3A' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: 'clamp(4rem, 8vw, 6rem)' }}>
           <SectionHead sup="What I studied so far" title="Education Experience" accent="." />
@@ -428,7 +428,7 @@ export default function Home() {
                   <svg width="14" height="14" fill="none" stroke="#8B5CF6" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
                   <div>
                     <p style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.82rem', color: '#F1F5F9', margin: 0 }}>{cert.name}</p>
-                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: '#64748B', margin: 0 }}>{cert.issuer} · {cert.year}</p>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: '#64748B', margin: 0 }}>{cert.issuer} Â· {cert.year}</p>
                   </div>
                 </motion.div>
               ))}
@@ -437,7 +437,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ FEATURED PROJECTS ═════════════════════════════════════════════ */}
+      {/* â•â• FEATURED PROJECTS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ padding: '0 1.5rem clamp(4rem, 8vw, 6rem)', borderTop: '1px solid #1C2A3A' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: 'clamp(4rem, 8vw, 6rem)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
@@ -454,7 +454,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+      {/* â•â• CTA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section style={{ padding: '0 1.5rem clamp(4rem, 8vw, 7rem)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -487,3 +487,4 @@ export default function Home() {
     </PageTransition>
   );
 }
+
