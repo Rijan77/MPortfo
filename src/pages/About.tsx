@@ -75,7 +75,7 @@ export default function About() {
         <style>{`
           @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr !important; }
-            .about-photo { display: none !important; }
+            .about-photo { display: flex !important; justify-content: center !important; order: -1 !important; margin-bottom: 1.5rem !important; }
           }
         `}</style>
       </section>

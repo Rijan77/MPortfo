@@ -260,6 +260,13 @@ export default function Home() {
               Flutter Developer · Software Engineer
             </motion.p>
 
+            {/* Mobile-only profile photo — shown when the 3D hero-right is hidden */}
+            <motion.div {...fadeUp(0.18)} className="hero-mobile-photo" style={{ display: 'none', justifyContent: 'center', margin: '0.25rem 0 1.5rem' }}>
+              <div style={{ padding: '2px', borderRadius: '1.25rem', background: 'linear-gradient(135deg, rgba(6,182,212,0.7) 0%, rgba(139,92,246,0.7) 100%)', boxShadow: '0 8px 32px rgba(6,182,212,0.18)', display: 'inline-block' }}>
+                <img src={profileImg} alt="Rijan Acharya" style={{ width: '140px', height: '170px', borderRadius: 'calc(1.25rem - 2px)', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
+              </div>
+            </motion.div>
+
             <motion.p {...fadeUp(0.22)} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 1.8vw, 1rem)', color: '#64748B', lineHeight: 1.8, margin: '0 0 2rem', maxWidth: '450px' }}>
               Building cross-platform mobile apps that matter — currently crafting healthcare workflows at{' '}
               <span style={{ color: '#06B6D4', fontWeight: 600 }}>Mediisha</span> with Flutter &amp; Clean Architecture.
@@ -319,6 +326,7 @@ export default function Home() {
           @media (max-width: 860px) {
             .hero-main-grid { grid-template-columns: 1fr !important; }
             .hero-right { display: none !important; }
+            .hero-mobile-photo { display: flex !important; }
           }
           @media (max-width: 480px) {
             .hero-main-grid { padding-top: 1rem !important; }
