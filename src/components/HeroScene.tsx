@@ -16,7 +16,7 @@ function TorusKnot() {
   return (
     <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.8}>
       <mesh ref={mesh} scale={1.1}>
-        <torusKnotGeometry args={[1, 0.32, 160, 20, 2, 3]} />
+        <torusKnotGeometry args={[1, 0.32, 96, 12, 2, 3]} />
         <MeshDistortMaterial
           color="#06B6D4"
           roughness={0.05}
@@ -50,8 +50,9 @@ export default function HeroScene() {
     <Canvas
       camera={{ position: [0, 0, 5.5], fov: 45 }}
       style={{ width: '100%', height: '100%', background: 'transparent' }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 2]}
+      gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
+      dpr={[1, 1.5]}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.3} />
       <pointLight position={[4, 4, 4]} color="#06B6D4" intensity={4} />

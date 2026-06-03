@@ -54,13 +54,13 @@ function WireGlobe() {
 
         {/* Equatorial ring */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[1.82, 0.018, 8, 120]} />
+          <torusGeometry args={[1.82, 0.018, 8, 64]} />
           <meshStandardMaterial color="#06B6D4" emissive="#06B6D4" emissiveIntensity={1} transparent opacity={0.7} />
         </mesh>
 
         {/* Tilted accent ring */}
         <mesh rotation={[Math.PI / 5, 0, Math.PI / 6]}>
-          <torusGeometry args={[1.82, 0.01, 6, 120]} />
+          <torusGeometry args={[1.82, 0.01, 6, 64]} />
           <meshStandardMaterial color="#8B5CF6" emissive="#8B5CF6" emissiveIntensity={0.8} transparent opacity={0.5} />
         </mesh>
       </group>
@@ -73,8 +73,9 @@ export default function ContactScene() {
     <Canvas
       camera={{ position: [0, 0, 5.5], fov: 44 }}
       style={{ width: '100%', height: '100%', background: 'transparent' }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 2]}
+      gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
+      dpr={[1, 1.5]}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.4} />
       <pointLight position={[3, 3, 3]} color="#06B6D4" intensity={4} />
