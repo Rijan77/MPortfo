@@ -1,4 +1,4 @@
-# Rijan Prasad Acharya — Personal Portfolio
+# Rijan Acharya — Personal Portfolio
 
 Multi-page personal website built with **Vite + React + TypeScript**, **Tailwind CSS v4**, **Framer Motion**, and **Supabase**.
 
