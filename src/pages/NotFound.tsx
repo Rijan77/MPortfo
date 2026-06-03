@@ -11,7 +11,7 @@ export default function NotFound() {
       </Helmet>
       <section style={{ minHeight: 'calc(100vh - 4rem)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}>
-          <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '6rem', color: '#1E293B', margin: '0 0 0.5rem', lineHeight: 1 }}>404</p>
+          <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: 'clamp(3rem, 20vw, 6rem)', color: '#1E293B', margin: '0 0 0.5rem', lineHeight: 1 }}>404</p>
           <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', color: '#F1F5F9', margin: '0 0 1rem', letterSpacing: '-0.02em' }}>
             Page not found
           </h1>

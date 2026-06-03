@@ -158,6 +158,7 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { delay: 0.25 } }}
+            className="proj-nav"
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', borderTop: '1px solid #1E293B', paddingTop: '2rem' }}
           >
             {prev ? (
@@ -188,6 +189,7 @@ export default function ProjectDetail() {
           </motion.div>
         </div>
       </section>
+      <style>{`@media (max-width: 540px) { .proj-nav { grid-template-columns: 1fr !important; } }`}</style>
     </PageTransition>
   );
 }

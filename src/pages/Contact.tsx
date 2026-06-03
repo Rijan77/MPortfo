@@ -16,7 +16,7 @@ export default function Contact() {
 
   const supabaseConfigured = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMsg('');
@@ -90,6 +90,9 @@ export default function Contact() {
           @media (max-width: 768px) {
             .contact-hero-grid { grid-template-columns: 1fr !important; }
             .contact-3d { height: 240px !important; }
+          }
+          @media (max-width: 540px) {
+            .contact-3d { display: none !important; }
           }
         `}</style>
       </section>

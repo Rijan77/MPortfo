@@ -10,7 +10,7 @@ export default function Footer() {
       padding: '2.5rem 1.5rem',
       marginTop: 'auto',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+      <div className="footer-inner" style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
         <div>
           <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#F1F5F9' }}>
             <span style={{ color: '#06B6D4' }}>R</span>ijan Prasad Acharya<span style={{ color: '#8B5CF6' }}>.</span>
@@ -62,6 +62,12 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+          .footer-inner nav { justify-content: center; }
+        }
+      `}</style>
     </footer>
   );
 }

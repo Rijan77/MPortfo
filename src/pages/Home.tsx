@@ -137,7 +137,7 @@ function TiltPhoto() {
 }
 
 /* ─── Alternating timeline item ─── */
-function TimelineItem({ left, right, dot, index }: { left: React.ReactNode; right: React.ReactNode; dot: React.ReactNode; index: number }) {
+function TimelineItem({ left, right, dot, index, leftIsCard = true }: { left: React.ReactNode; right: React.ReactNode; dot: React.ReactNode; index: number; leftIsCard?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -147,11 +147,11 @@ function TimelineItem({ left, right, dot, index }: { left: React.ReactNode; righ
       style={{ display: 'grid', gridTemplateColumns: '1fr 72px 1fr', gap: '1.5rem', alignItems: 'center', marginBottom: '2.5rem' }}
       className="timeline-row"
     >
-      {left}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0, position: 'relative', zIndex: 2 }}>
+      <div className={leftIsCard ? 'tl-card' : 'tl-date'}>{left}</div>
+      <div className="timeline-dot-col" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0, position: 'relative', zIndex: 2 }}>
         {dot}
       </div>
-      {right}
+      <div className={leftIsCard ? 'tl-date' : 'tl-card'}>{right}</div>
     </motion.div>
   );
 }
@@ -281,7 +281,7 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            <motion.div {...fadeUp(0.33)} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <motion.div {...fadeUp(0.33)} className="hero-social-links" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               {[
                 { href: 'https://github.com/Rijan77', label: 'GitHub', icon: <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" /></svg> },
                 { href: 'https://www.linkedin.com/in/rijan-acharya/', label: 'LinkedIn', icon: <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
@@ -320,6 +320,10 @@ export default function Home() {
             .hero-main-grid { grid-template-columns: 1fr !important; }
             .hero-right { display: none !important; }
           }
+          @media (max-width: 480px) {
+            .hero-main-grid { padding-top: 1rem !important; }
+            .hero-social-links { gap: 1.25rem !important; }
+          }
         `}</style>
       </section>
 
@@ -341,7 +345,10 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-        <style>{`@media (max-width: 640px) { .stat-col-1, .stat-col-3 { border-right: none !important; } }`}</style>
+        <style>{`
+          @media (max-width: 640px) { .stat-col-1, .stat-col-3 { border-right: none !important; } }
+          @media (max-width: 380px) { .stat-col-0, .stat-col-1, .stat-col-2 { border-right: none !important; } }
+        `}</style>
       </section>
 
       {/* ══ WORK EXPERIENCE — Alternating Timeline ═══════════════════════ */}
@@ -359,6 +366,7 @@ export default function Home() {
                 <TimelineItem
                   key={i}
                   index={i}
+                  leftIsCard={isLeft}
                   dot={<LogoDot logoKey={exp.logoKey} glowColor={exp.current ? '#06B6D4' : '#334155'} fallback={exp.company[0]} />}
                   left={isLeft
                     ? <ExpCard role={exp.role} company={exp.company} bullets={exp.bullets} current={exp.current} />
@@ -377,7 +385,10 @@ export default function Home() {
         <style>{`
           @media (max-width: 700px) {
             .center-line { display: none !important; }
-            .timeline-row { grid-template-columns: 44px 1fr !important; gap: 1rem !important; }
+            .timeline-row { display: flex !important; align-items: flex-start !important; gap: 1rem !important; }
+            .timeline-dot-col { order: 1; flex-shrink: 0; }
+            .tl-card { order: 2; flex: 1; min-width: 0; }
+            .tl-date { display: none !important; }
           }
         `}</style>
       </section>
@@ -404,6 +415,7 @@ export default function Home() {
                 <TimelineItem
                   key={i}
                   index={i}
+                  leftIsCard={isLeft}
                   dot={<LogoDot logoKey={edu.logoKey} glowColor="#8B5CF6" fallback={edu.institution[0]} />}
                   left={isLeft
                     ? <EduCard degree={edu.degree} institution={edu.institution} period={edu.period} />
