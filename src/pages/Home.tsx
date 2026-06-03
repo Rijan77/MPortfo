@@ -261,11 +261,9 @@ export default function Home() {
             </motion.p>
 
             {/* Mobile-only profile photo — shown when the 3D hero-right is hidden */}
-            <motion.div {...fadeUp(0.18)} className="hero-mobile-photo" style={{ display: 'none', justifyContent: 'center', margin: '0.25rem 0 1.5rem' }}>
-              <div style={{ padding: '2px', borderRadius: '1.25rem', background: 'linear-gradient(135deg, rgba(6,182,212,0.7) 0%, rgba(139,92,246,0.7) 100%)', boxShadow: '0 8px 32px rgba(6,182,212,0.18)', display: 'inline-block' }}>
-                <img src={profileImg} alt="Rijan Acharya" style={{ width: '140px', height: '170px', borderRadius: 'calc(1.25rem - 2px)', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
-              </div>
-            </motion.div>
+            <div className="hero-mobile-photo" style={{ display: 'none', justifyContent: 'center', margin: '0.5rem 0 2rem', overflow: 'visible' }}>
+              <TiltPhoto />
+            </div>
 
             <motion.p {...fadeUp(0.22)} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 1.8vw, 1rem)', color: '#64748B', lineHeight: 1.8, margin: '0 0 2rem', maxWidth: '450px' }}>
               Building cross-platform mobile apps that matter — currently crafting healthcare workflows at{' '}
