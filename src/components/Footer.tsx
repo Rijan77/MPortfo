@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="footer-inner" style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
         <div>
           <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#F1F5F9' }}>
-            <span style={{ color: '#06B6D4' }}>R</span>ijan Prasad Acharya<span style={{ color: '#8B5CF6' }}>.</span>
+            <span style={{ color: '#06B6D4' }}>R</span>ijan Acharya<span style={{ color: '#8B5CF6' }}>.</span>
           </span>
           <p style={{ color: '#64748B', fontSize: '0.82rem', marginTop: '0.3rem', fontFamily: "'DM Sans', sans-serif" }}>
             © {year} · Flutter Developer · Kathmandu, Nepal

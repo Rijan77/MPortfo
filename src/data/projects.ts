@@ -58,7 +58,7 @@ export const projects: Project[] = [
     ],
     tech: ['Flutter', 'Firebase', 'Aviation Stack API', 'Dart'],
     github: 'https://github.com/Rijan77/flight-tracker',
-    demo: 'DEMO_PLACEHOLDER',
+    demo: 'https://youtube.com/shorts/uqAD8SORLh0?si=rdh62JZDAxfQakUv',
     featured: true,
     images: [skybook1, skybook2],
   },
