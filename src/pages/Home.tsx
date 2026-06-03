@@ -32,8 +32,8 @@ const fadeUp = (delay = 0) => ({
 
 /* --- Tilt Photo --- */
 const PHOTOS = [
-  { src: profileImg,  pos: 'center top',    label: 'Flutter Dev',   color: '#54C5F8' },
-  { src: profileImg2, pos: 'center center', label: 'Software Eng.', color: '#8B5CF6' },
+  { src: profileImg,  pos: 'center top',    label: 'Flutter Dev',   color: '#54C5F8', badge: '📱' },
+  { src: profileImg2, pos: 'center center', label: 'Software Eng.', color: '#8B5CF6', badge: '💻' },
 ];
 
 function TiltPhoto() {
