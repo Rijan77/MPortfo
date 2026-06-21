@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
+import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <ChatBot />
       <Layout>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
